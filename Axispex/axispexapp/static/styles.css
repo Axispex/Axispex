@@ -1,65 +1,24 @@
-#sld {
-    box-sizing: border-box;
-    border: 20px solid #969696;
-    background: #d9dbda;
-    margin-left: 900px;
-  }
+.ticker-news {
+  width: 7000px;
+  padding: 10px 0;
+  color: #ffffff;
+  font-size: 36px;
+  text-transform: uppercase;
+  text-shadow: 0 0 5px rgba(0,0,0,1); 
   
-  #sl {
-    box-sizing: border-box;
-    border: 20px solid #969696;
-    background: #d9dbda;
-  }
-
-  .scroll-reveal {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 1s, transform 1s;
-  }
-
-  #myElement {
-    font-family: monospace;
-    overflow: hidden;
-    white-space: nowrap;
-    animation: typewriter 4s steps(20) 1s infinite;
-  }
-  
-  @keyframes typewriter {
-    from {
-      width: 0;
-    }
-    to {
-      width: 100%;
-    }
-  }
-
-
-    /* CSS */
-    #imageContainer {
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .imagePiece {
-      position: absolute;
-      transition: transform 0.5s;
-      background-repeat: no-repeat;
-    }
-
-
-      .animate {
-        animation: animatePiece 5s linear forwards;
-      }
-      
-      @keyframes animatePiece {
-        0% {
-          transform: translate(0, 0);
-        }
-        100% {
-          transform: translate(400px, 400px);
-        }
-      }
-
-#ncolor{
-    color: azure;
 }
+
+.ticker-news > * {
+  display: inline-block;
+  animation: news 20s infinite linear;
+}
+
+@keyframes news {
+  0% {transform: translateX(0);}
+  100% {transform: translateX(-4135px);}
+}
+
+
+
+
+
