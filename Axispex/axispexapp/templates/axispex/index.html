@@ -13,6 +13,7 @@
       </div>
     </div>
     <div id="sld"><p>sdsdfwfewfefefewgwgrgrhgrhthththtjjyjyjyjyjyj</p></div>
+
     <script>
       const imageContainer = document.getElementById("imageContainer");
       const imageURL = "{% static '1.png' %}";
@@ -109,6 +110,19 @@
           pieces[i].style.transform = "none";
         }
       }
+      
+      // CSS Styles:
+      /*
+      #imageContainer {
+        overflow: hidden;
+      }
+      
+      .imagePiece {
+        position: absolute;
+        background-repeat: no-repeat;
+      }
+      */
+      
       const sld = document.querySelector('#sld');
 
 sld.addEventListener('wheel', function(event) {
