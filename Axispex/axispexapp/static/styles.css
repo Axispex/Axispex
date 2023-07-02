@@ -59,4 +59,7 @@
           transform: translate(400px, 400px);
         }
       }
-      
+
+#ncolor{
+    color: azure;
+}

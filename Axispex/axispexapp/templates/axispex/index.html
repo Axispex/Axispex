@@ -4,20 +4,39 @@
     <head>
         <title>
         </title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link href="{% static 'styles.css' %}" rel="stylesheet"> 
   </head>
   <body>
+    <nav class="navbar navbar-dark bg-primary">
+      <ul class="nav justify-content-end">
+        <li class="nav-item">
+          <a class="nav-link active" id="ncolor" href="#">Active</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="ncolor" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="ncolor" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" id="ncolor" href="#">Disabled</a>
+        </li>
+      </ul>
+  </nav>
+     
+       
     <div id="img">
       <div id ="imageContainer">
       
       </div>
     </div>
-    <div id="sld"><p>sdsdfwfewfefefewgwgrgrhgrhthththtjjyjyjyjyjyj</p></div>
+    <div id="sld"><p>about us goes here our vision and mission</p></div>
 
     <script>
       const imageContainer = document.getElementById("imageContainer");
       const imageURL = "{% static '1.png' %}";
-      const numberOfPieces = 100;
+      const numberOfPieces = 500;
       let isScrolling = false; // Flag to check if scrolling is in progress
       
       // Load the image
@@ -98,11 +117,14 @@
       };
       
       // Function to animate the pieces
-      function animatePieces(pieces) {
-        for (let i = 0; i < pieces.length; i++) {
-          pieces[i].style.transform = "translateX(" + Math.random() * 400 + "px) translateY(" + Math.random() * 400 + "px)";
-        }
+    function animatePieces(pieces) {
+    for (let i = 0; i < pieces.length; i++) {
+        pieces[i].style.transform = "translateX(" + Math.random() * 400 + "px) translateY(" + Math.random() * 400 + "px)";
+       }
       }
+
+ 
+
       
       // Function to reset the pieces to the original position
       function resetPieces(pieces) {
