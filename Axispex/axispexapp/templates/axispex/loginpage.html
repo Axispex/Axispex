@@ -9,6 +9,8 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
     </head>
 <body>
+  <div class="door"></div>
+  <div class="content">
     <div id="name"><img src="{% static '2.png' %}"></div>
 
         <div class="ticker-news">
@@ -40,13 +42,12 @@
           </div>
       
 
-          <a href="{% url 'index' %}" class="door-link" onclick="openDoor(event)"><img src="static/ENTER.png" alt="Door Image" class="center"></a></a>
+          <a href="{% url 'index' %}" class="door-link" onclick="openDoor(event)" id="login-button"><img src="static/ENTER.png" alt="Door Image" class="center"></a></a>
     
-
+        </div>
 
           <script>
-        
         </script>
-          
+     
 </body> 
 </html>

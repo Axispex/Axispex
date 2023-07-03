@@ -7,7 +7,10 @@
   <link href="{% static 'styles.css' %}" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
 </head>
+<div class="door-inner"></div>
+<div class="content">
 <body id="sld">
+  <div id="middle"></div>
   <div class="card-container">
     <div class="card">Card 1</div>
     <div class="card">Card 2</div>
@@ -18,6 +21,7 @@
     <div class="card">Card 7</div>
     <div class="card">Card 8</div>
   </div>
+</div>
   <script>
     const sld = document.querySelector('#sld');
 
@@ -30,7 +34,6 @@
     
       sld.style.marginLeft = `${newMarginLeft}px`; // Set the new left margin value
     });
-    
   </script>
 </body>
 </html>

@@ -99,6 +99,7 @@
     height: 800px;
     margin-left: 900px;
     margin-right: 100px;
+    margin-top: 20px;
   }
   
   .card {
@@ -107,6 +108,50 @@
     background-color:white;
     margin-right: 10px;
     border-radius: 5px;
-    border-width: 5px;
+    border-width: 1cap;
     border-color: grey;
   }
+
+  #sld {
+    animation: fadeInAnimation ease 3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+  }
+  @keyframes fadeInAnimation {
+    0%{
+        opacity: 0;
+        background-color: #ffffff;
+        left:100px;
+        transform: rotate(90deg);
+      }
+      20%{
+        opacity: 0.2;
+        background-color: #2bb124;
+        transform: rotate(90deg);
+      }
+      40%{
+        opacity: 0.4;
+        background-color: #4267B2;
+        transform: rotate(90deg);
+      }
+      60%{
+        opacity: 0.6;
+        background-color: #460514;
+        transform: rotate(90deg);
+      }
+    100% {
+        opacity: 1;
+        background-color: black;
+        
+      } }
+
+/*#middle {
+  width: 100px;
+  height: 100px;
+  position: fixed;
+  top: 50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+  background-color: #ffffff;
+  }*/
+  
