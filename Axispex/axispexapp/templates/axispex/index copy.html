@@ -1,0 +1,163 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>
+        </title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link href="{% static 'styles.css' %}" rel="stylesheet"> 
+  </head>
+  <body>
+    <nav class="navbar navbar-dark bg-primary">
+      <ul class="nav justify-content-end">
+        <li class="nav-item">
+          <a class="nav-link active" id="ncolor" href="#">Active</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="ncolor" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="ncolor" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" id="ncolor" href="#">Disabled</a>
+        </li>
+      </ul>
+  </nav>
+     
+       
+    <div id="img">
+      <div id ="imageContainer">
+      
+      </div>
+    </div>
+    <div id="sld"><p>about us goes here our vision and mission</p></div>
+
+    <script>
+      const imageContainer = document.getElementById("imageContainer");
+      const imageURL = "{% static '1.png' %}";
+      const numberOfPieces = 500;
+      let isScrolling = false; // Flag to check if scrolling is in progress
+      
+      // Load the image
+      const image = new Image();
+      image.src = imageURL;
+      image.onload = function() {
+        const canvas = document.createElement("canvas");
+        const context = canvas.getContext("2d");
+      
+        const screenWidth = window.innerWidth;
+        const screenHeight = 700; // Set the desired height here
+      
+        // Calculate the aspect ratio of the original image
+        const aspectRatio = image.width / image.height;
+      
+        // Calculate the new width and height to fit the screen
+        let resizedWidth, resizedHeight;
+        if (screenWidth / screenHeight > aspectRatio) {
+          resizedWidth = screenHeight * aspectRatio;
+          resizedHeight = screenHeight;
+        } else {
+          resizedWidth = screenWidth;
+          resizedHeight = screenWidth / aspectRatio;
+        }
+      
+        // Resize the image using the canvas element
+        canvas.width = resizedWidth;
+        canvas.height = resizedHeight;
+        context.drawImage(image, 0, 0, resizedWidth, resizedHeight);
+      
+        imageContainer.style.width = `${screenWidth}px`;
+        imageContainer.style.height = `${screenHeight}px`;
+      
+        const pieceWidth = screenWidth / Math.sqrt(numberOfPieces);
+        const pieceHeight = screenHeight / Math.sqrt(numberOfPieces);
+        const pieces = [];
+      
+        for (let i = 0; i < numberOfPieces; i++) {
+          const piece = document.createElement("div");
+          piece.className = "imagePiece";
+          piece.style.width = `${pieceWidth}px`;
+          piece.style.height = `${pieceHeight}px`;
+          piece.style.backgroundImage = `url(${canvas.toDataURL()})`;
+          piece.style.backgroundPosition = `${-(i % Math.sqrt(numberOfPieces)) * pieceWidth}px ${-Math.floor(i / Math.sqrt(numberOfPieces)) * pieceHeight}px`;
+          piece.style.left = `${(i % Math.sqrt(numberOfPieces)) * pieceWidth}px`;
+          piece.style.top = `${Math.floor(i / Math.sqrt(numberOfPieces)) * pieceHeight}px`;
+      
+          imageContainer.appendChild(piece);
+          pieces.push(piece);
+        }
+      
+        // Animate the pieces on page load
+        setTimeout(function() {
+          animatePieces(pieces);
+        }, 1000);
+      
+        // Revert the pieces to original position after a delay
+        setTimeout(function() {
+          resetPieces(pieces);
+        }, 5000);
+      
+        // Pause animation when scrolling
+        window.addEventListener("scroll", function() {
+          if (!isScrolling) {
+            isScrolling = true;
+            if (window.scrollY === 0) {
+              resetPieces(pieces);
+            } else {
+              animatePieces(pieces);
+            }
+      
+            // Reset the scrolling flag after a delay
+            setTimeout(function() {
+              isScrolling = false;
+            }, 200);
+          }
+        });
+      };
+      
+      // Function to animate the pieces
+    function animatePieces(pieces) {
+    for (let i = 0; i < pieces.length; i++) {
+        pieces[i].style.transform = "translateX(" + Math.random() * 400 + "px) translateY(" + Math.random() * 400 + "px)";
+       }
+      }
+
+ 
+
+      
+      // Function to reset the pieces to the original position
+      function resetPieces(pieces) {
+        for (let i = 0; i < pieces.length; i++) {
+          pieces[i].style.transform = "none";
+        }
+      }
+      
+      // CSS Styles:
+      /*
+      #imageContainer {
+        overflow: hidden;
+      }
+      
+      .imagePiece {
+        position: absolute;
+        background-repeat: no-repeat;
+      }
+      */
+      
+      const sld = document.querySelector('#sld');
+
+sld.addEventListener('wheel', function(event) {
+  event.preventDefault(); // Prevent default scrolling behavior
+
+  const scrollAmount = event.deltaY; // Get the scroll amount
+  const currentMarginLeft = parseInt(sld.style.marginLeft) || 0; // Get the current left margin value or default to 0
+  const newMarginLeft = currentMarginLeft - scrollAmount; // Calculate the new left margin value
+
+  sld.style.marginLeft = `${newMarginLeft}px`; // Set the new left margin value
+});
+
+      
+    </script>
+    </body>
+</html>
