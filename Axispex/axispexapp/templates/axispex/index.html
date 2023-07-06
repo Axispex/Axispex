@@ -5,25 +5,26 @@
   <title></title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link href="{% static 'styles.css' %}" rel="stylesheet">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    
+  </style>
 </head>
-<div class="door-inner"></div>
-<div class="content">
 <body id="sld">
-  <div id="middle"></div>
-  <div class="card-container">
-    <div class="card">Card 1</div>
-    <div class="card">Card 2</div>
-    <div class="card">Card 3</div>
-    <div class="card">Card 4</div>
-    <div class="card">Card 5</div>
-    <div class="card">Card 6</div>
-    <div class="card">Card 7</div>
-    <div class="card">Card 8</div>
+  <div class="card-container" id="card-ctn">
+    <div class="card" id="card-1">Home</div>
+    <div class="card" id="card-2">Contact us</div>
+    <div class="card" id="card-3">Our Services</div>
+    <div class="card" id="card-4">Price</div>
+    <div class="card" id="card-5"></div>
+    <div class="card" id="card-6"></div>
+    <div class="card" id="card-7"></div>  
+    <div class="card" id="card-8"></div>
   </div>
-</div>
+  
   <script>
     const sld = document.querySelector('#sld');
+    const cd1 = document.querySelector('#card-1');
 
     sld.addEventListener('wheel', function(event) {
       event.preventDefault(); // Prevent default scrolling behavior
@@ -34,6 +35,7 @@
     
       sld.style.marginLeft = `${newMarginLeft}px`; // Set the new left margin value
     });
+    
   </script>
 </body>
 </html>
