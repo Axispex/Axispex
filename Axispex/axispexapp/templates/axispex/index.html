@@ -11,29 +11,96 @@
   </style>
 </head>
 <body id="sld">
+
+    <div><img src="{% static 'blk.jpg' %}"></div>
+
+  <ul class="nav justify-content-end">
+  <li  >
+    <div><img src="{% static 'fb.png' %}" class="right"></div>
+  </li>
+  <li  >
+    <div><img src="{% static 'ing.png' %}" class="right"></div>
+  </li>
+  <li  >
+    <div><img src="{% static 'tik.png' %}" class="right"></div>
+  </li>
+  <li  >
+    <div><img src="{% static 'pin.png' %}" class="right"></div>
+  </li>
+  <li  >
+    <div><img src="{% static 'link.png' %}" class="right"></div>
+  </li>
+  <li  >
+    <div><img src="{% static 'twt.png' %}" class="right"></div>
+  </li>
+</ul>
+  <nav class="navbar navbar-dark bg-dark">
+  <ul class="nav justify-content-end">
+
+    <li class="nav-item">
+      <a class="nav-link active" href="#" id="textcolor">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link"  id="textcolor" href="#">About Us</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="textcolor" href="#">Our Services</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="textcolor" href="#">Our Packages</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link disabled" id="textcolor" href="#">Contact Us</a>
+    </li>
+  </ul> 
+</nav>
   <div class="card-container" id="card-ctn">
-    <div class="card" id="card-1">Home</div>
-    <div class="card" id="card-2">Contact us</div>
-    <div class="card" id="card-3">Our Services</div>
-    <div class="card" id="card-4">Price</div>
-    <div class="card" id="card-5"></div>
-    <div class="card" id="card-6"></div>
-    <div class="card" id="card-7"></div>  
-    <div class="card" id="card-8"></div>
+    <a href="" ><div class="card" id="card-1"><h1 id="link">Web Development</h1></div></a>
+    <a href="" ><div class="card" id="card-2"><h1 id="link">Desktop Software Development</h1></div></a>
+    <a href="" ><div class="card" id="card-3"><h1 id="link">Mobile Software Development</h1></div></a>
+    <a href="" ><div class="card" id="card-4"><h1 id="link">Simple Game Developments</h1></div></a>
+    <a href="" ><div class="card" id="card-5"><h1 id="link">our services</h1></div></a>
+    <a href="" ><div class="card" id="card-6"><h1 id="link">Contact Us</h1></div></a>
+    
+    
   </div>
   
   <script>
     const sld = document.querySelector('#sld');
-    const cd1 = document.querySelector('#card-1');
-
+    const cards = document.querySelectorAll('.card');
+    let initialScroll = true;
+    
+    cards.forEach((card, index) => {
+      card.style.opacity = "0";
+      card.style.transform = `translateX(100%)`;
+    });
+    
     sld.addEventListener('wheel', function(event) {
       event.preventDefault(); // Prevent default scrolling behavior
     
-      const scrollAmount = event.deltaY; // Get the scroll amount
-      const currentMarginLeft = parseInt(sld.style.marginLeft) || 0; // Get the current left margin value or default to 0
-      const newMarginLeft = currentMarginLeft - scrollAmount; // Calculate the new left margin value
+      if (initialScroll) {
+        initialScroll = false;
+        return;
+      }
     
-      sld.style.marginLeft = `${newMarginLeft}px`; // Set the new left margin value
+      const scrollAmount = event.deltaY;
+    
+      cards.forEach((card, index) => {
+        setTimeout(() => {
+          let currentOpacity = parseFloat(card.style.opacity) || 0;
+          const opacityChange = Math.abs(scrollAmount) / 1000;
+    
+          currentOpacity += opacityChange;
+          currentOpacity = Math.min(1, currentOpacity);
+    
+          card.style.opacity = currentOpacity;
+    
+          const currentTranslateX = parseFloat(card.style.transform.replace('translateX(', '').replace('%)', '')) || 0;
+          const newTranslateX = currentTranslateX - scrollAmount;
+    
+          card.style.transform = `translateX(${newTranslateX}%)`;
+        }, index * 100);
+      });
     });
     
   </script>
