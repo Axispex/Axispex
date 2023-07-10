@@ -1,0 +1,184 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title></title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link href="{% static 'styles.css' %}" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <style>
+    body {
+      overflow: hidden;
+    }
+    
+    .container {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+    }
+    
+    .background-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-repeat: no-repeat;
+      background-size: cover;
+      opacity: 1;
+      transition: opacity 0.5s;
+    }
+    
+    .matrix-effect {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("{% static 'binary.gif' %}");
+      background-repeat: no-repeat;
+      background-size: cover;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.5s;
+      clip-path: polygon(0% 0%, 0% 0%, 0% 0%);
+    }
+    
+    .container:hover .matrix-effect {
+      opacity: 1;
+    }
+    
+  </style>
+</head>
+<body id="sld">
+
+    <div><img src="{% static 'ggg.jpg' %}" height="auto" width="500px"></div>
+
+  <ul class="nav justify-content-end">
+  <li  >
+    <div><img src="{% static 'fb.png' %}" class="right"></div>
+  </li>
+  <li  >
+    <div><img src="{% static 'ing.png' %}" class="right"></div>
+  </li>
+  <li  >
+    <div><img src="{% static 'tik.png' %}" class="right"></div>
+  </li>
+  <li  >
+    <div><img src="{% static 'pin.png' %}" class="right"></div>
+  </li>
+  <li  >
+    <div><img src="{% static 'link.png' %}" class="right"></div>
+  </li>
+  <li  >
+    <div><img src="{% static 'twt.png' %}" class="right"></div>
+  </li>
+</ul>
+  <nav class="navbar navbar-dark bg-dark">
+  <ul class="nav justify-content-end">
+    <li class="nav-item">
+      <a class="nav-link active" href="#" id="textcolor">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link"  id="textcolor" href="#">About Us</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="textcolor" href="#">Our Services</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="textcolor" href="#">Our Packages</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link disabled" id="textcolor" href="#">Contact Us</a>
+    </li>
+  </ul> 
+</nav>
+<div class="container">
+  <div class="background-image"></div>
+  <div class="matrix-effect"></div>
+<div class="card-container" id="card-ctn">
+    <a href="" ><div class="card" id="card-1"><h1 id="link">Web Development</h1><img src="{% static 'webd.png' %}"></div></a>
+    <a href="" ><div class="card" id="card-2"><h1 id="link">Desktop Software Development</h1></div></a>
+    <a href="" ><div class="card" id="card-3"><h1 id="link">Mobile Software Development</h1></div></a>
+    <a href="" ><div class="card" id="card-4"><h1 id="link">Simple Game Developments</h1></div></a>
+    <a href="" ><div class="card" id="card-5"><h1 id="link">Automations</h1></div></a>
+    <a href="" ><div class="card" id="card-6"><h1 id="link">RPA Solutions</h1></div></a>
+  </div>
+</div>
+  <script>
+    const cards = document.querySelectorAll('.card');
+    let initialScroll = true;
+    
+    cards.forEach((card, index) => {
+      card.style.opacity = "0";
+      card.style.transform = `translateX(100%)`;
+    });
+    
+    window.addEventListener('wheel', function(event) {
+      event.preventDefault(); // Prevent default scrolling behavior
+    
+      if (initialScroll) {
+        initialScroll = false;
+        return;
+      }
+    
+      const scrollAmount = event.deltaY;
+    
+      cards.forEach((card, index) => {
+        setTimeout(() => {
+          let currentOpacity = parseFloat(card.style.opacity) || 0;
+          const opacityChange = Math.abs(scrollAmount) / 1000;
+    
+          currentOpacity += opacityChange;
+          currentOpacity = Math.min(1, currentOpacity);
+    
+          card.style.opacity = currentOpacity;
+    
+          const currentTranslateX = parseFloat(card.style.transform.replace('translateX(', '').replace('%)', '')) || 0;
+          const newTranslateX = currentTranslateX - scrollAmount;
+    
+          card.style.transform = `translateX(${newTranslateX}%)`;
+        }, index * 100);
+      });
+    });
+
+
+    // Matrix effect background
+    const matrixEffect = document.querySelector('.matrix-effect');
+    const body = document.querySelector('body');
+    
+    body.addEventListener('mousemove', (event) => {
+      const mouseX = event.clientX - 80;
+      const mouseY = event.clientY - 190;
+      const shapeSize = Math.random() * 100 - 100 ; // Adjust the range and size of the random shape
+    
+      const randomShape = generateRandomShape(mouseX, mouseY, shapeSize);
+      matrixEffect.style.clipPath = randomShape;
+    });
+    
+    function generateRandomShape(x, y, size) {
+      const numPoints = Math.floor(Math.random() * 6) + 3; // Generate a random number of points for the shape (between 3 and 8)
+      let shape = `polygon(`;
+    
+      for (let i = 0; i < numPoints; i++) {
+        const angle = (i * 360) / numPoints;
+        const radius = size * Math.random();
+        const pointX = x + radius * Math.cos((angle * Math.PI) / 180);
+        const pointY = y + radius * Math.sin((angle * Math.PI) / 180);
+    
+        shape += `${pointX}px ${pointY}px, `;
+      }
+    
+      shape = shape.slice(0, -2); // Remove the trailing comma and space
+      shape += `)`;
+    
+      return shape;
+    }
+    
+
+  </script>
+</body>
+<footer>copy right axispex</footer>
+</html>
