@@ -5,92 +5,12 @@
   <title></title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link href="{% static 'styles.css' %}" rel="stylesheet">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <style>
-    body {
-      margin: 0;
-      background: lightgray;
-      text-align: center;
-      font-family: sans-serif;
-      color: #fefefe;
-    }
-    .container {
-      position: relative;
-      width: 320px;
-      margin: 100px auto 0 auto;
-      perspective: 1000px;
-    }
-    
-    .carousel {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      transform-style: preserve-3d; 
-      animation: rotate360 60s infinite forwards linear;
-    }
-    .carousel__face { 
-      position: absolute;
-      width: 300px;
-      height: 187px;
-      top: 20px;
-      left: 10px;
-      right: 10px;
-      background-size: cover;
-      box-shadow:inset 0 0 0 2000px rgba(0,0,0,0.5);
-      display: flex;
-    }
-    
-    span {
-      margin: auto;
-      font-size: 2rem;
-    }
-    
-    
-    .carousel__face:nth-child(1) {
-      background-image: url("https://images.pexels.com/photos/1141853/pexels-photo-1141853.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
-      transform: rotateY(  0deg) translateZ(430px); }
-    .carousel__face:nth-child(2) { 
-      background-image: url("https://images.pexels.com/photos/1258865/pexels-photo-1258865.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
-        transform: rotateY( 40deg) translateZ(430px); }
-    .carousel__face:nth-child(3) {
-      background-image: url("https://images.pexels.com/photos/808466/pexels-photo-808466.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
-      transform: rotateY( 80deg) translateZ(430px); }
-    .carousel__face:nth-child(4) {
-      background-image: url("https://images.pexels.com/photos/1394841/pexels-photo-1394841.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
-      transform: rotateY(120deg) translateZ(430px); }
-    .carousel__face:nth-child(5) { 
-      background-image: url("https://images.pexels.com/photos/969679/pexels-photo-969679.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
-     transform: rotateY(160deg) translateZ(430px); }
-    .carousel__face:nth-child(6) { 
-      background-image: url("https://images.pexels.com/photos/1834400/pexels-photo-1834400.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
-     transform: rotateY(200deg) translateZ(430px); }
-    .carousel__face:nth-child(7) { 
-      background-image: url("https://images.pexels.com/photos/1415268/pexels-photo-1415268.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
-     transform: rotateY(240deg) translateZ(430px); }
-    .carousel__face:nth-child(8) {
-      background-image: url("https://images.pexels.com/photos/135018/pexels-photo-135018.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
-      transform: rotateY(280deg) translateZ(430px); }
-    .carousel__face:nth-child(9) {
-      background-image: url("https://images.pexels.com/photos/1175135/pexels-photo-1175135.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
-      transform: rotateY(320deg) translateZ(430px); }
-    
-    
-    
-    @keyframes rotate360 {
-      from {
-        transform: rotateY(0deg);
-      }
-      to {
-        transform: rotateY(-360deg);
-      }
-    }
-    
-  </style>
+  <link href="{% static 'variables.css' %}" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.0/anime.min.js"></script>
 </head>
 <body id="sld">
   
-  <div><img src="{% static 'ggg.jpg' %}" height="auto" width="500px"></div>
+  <div><img src="{% static 'ggg.jpg' %}" class="logo" height="auto" width="400px"></div>
   
   <ul class="nav justify-content-end">
     <li>
@@ -113,80 +33,188 @@
     </li>
   </ul>
   
-  <nav class="navbar navbar-dark bg-dark">
+  <nav class="navbar navbar-dark bg-dark" id="position">
     <ul class="nav justify-content-end">
       <li class="nav-item">
         <a class="nav-link active" href="#" id="textcolor">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" id="textcolor" href="#">About Us</a>
+        <a class="nav-link" id="textcolor" href="#" id="textcolor">About Us</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" id="textcolor" href="#">Our Services</a>
+        <a class="nav-link" id="textcolor" href="#" id="textcolor">Our Services</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" id="textcolor" href="#">Our Packages</a>
+        <a class="nav-link" id="textcolor" href="#" id="textcolor">Our Packages</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link disabled" id="textcolor" href="#">Contact Us</a>
+        <a class="nav-link disabled" id="textcolor" href="#" id="textcolor">Contact Us</a>
       </li>
     </ul> 
   </nav>
   
-  <div class="container">
-    <div class="background-image"></div>
-    <div class="matrix-effect"></div>
-    <div class="container">
-      <div class="carousel">
-        <div class="carousel__face"><span>This is something</span></div>
-        <div class="carousel__face"><span>Very special</span></div>
-        <div class="carousel__face"><span>Special is the key</span></div>
-        <div class="carousel__face"><span>For you</span></div>
-        <div class="carousel__face"><span>Just give it</span></div>
-        <div class="carousel__face"><span>A try</span></div>
-        <div class="carousel__face"><span>And see</span></div>
-        <div class="carousel__face"><span>How IT Works</span></div>
-        <div class="carousel__face"><span>Woow</span></div>
-      </div>
-    </div>  
+  <div class="animation-wrapper" id="animation-wrapper">
+    <div class="stagger-visualizer">
+      <div class="cursor color-red"></div>
+      <div class="dots-wrapper"></div>
+    </div>
   </div>
-<div>feaffefieufeefe</div>
-  <script>
+      <div class="carousel">
+        <figure>
+          <img src="{% static 'c-1.png' %}" alt="">
+          <img src="{% static 'c-1.png' %}" alt="">
+          <img src="{% static 'c-1.png' %}" alt="">
+          <img src="{% static 'c-1.png' %}" alt="">
+          <img src="{% static 'c-1.png' %}" alt="">
+          <img src="{% static 'c-1.png' %}" alt="">
+          <img src="{% static 'c-1.png' %}" alt="">
+          <img src="{% static 'c-1.png' %}" alt="">
+        </figure>
+        <nav>
+          <button class="nav prev">Prev</button>
+          <button class="nav next">Next</button>
+        </nav>
+      </div>
 
-    // Matrix effect background
-    const matrixEffect = document.querySelector('.matrix-effect');
-    const body = document.querySelector('body');
-    
-    body.addEventListener('mousemove', (event) => {
-      const mouseX = event.clientX - 80;
-      const mouseY = event.clientY - 190;
-      const shapeSize = Math.random() * 100 - 100 ; // Adjust the range and size of the random shape
-    
-      const randomShape = generateRandomShape(mouseX, mouseY, shapeSize);
-      matrixEffect.style.clipPath = randomShape;
-    });
-    
-    function generateRandomShape(x, y, size) {
-      const numPoints = Math.floor(Math.random() * 6) + 3; // Generate a random number of points for the shape (between 3 and 8)
-      let shape = `polygon(`;
-    
-      for (let i = 0; i < numPoints; i++) {
-        const angle = (i * 360) / numPoints;
-        const radius = size * Math.random();
-        const pointX = x + radius * Math.cos((angle * Math.PI) / 180);
-        const pointY = y + radius * Math.sin((angle * Math.PI) / 180);
-    
-        shape += `${pointX}px ${pointY}px, `;
+  </div>
+<footer>copy right axispex</footer>
+  <script>
+    function fitElementToParent(el, padding) {
+      var timeout = null;
+      function resize() {
+        if (timeout) clearTimeout(timeout);
+        anime.set(el, {scale: 1});
+        var pad = padding || 0;
+        var parentEl = el.parentNode;
+        var elOffsetWidth = el.offsetWidth - pad;
+        var parentOffsetWidth = parentEl.offsetWidth;
+        var ratio = parentOffsetWidth / elOffsetWidth;
+        timeout = setTimeout(anime.set(el, {scale: ratio}), 10);
       }
-    
-      shape = shape.slice(0, -2); // Remove the trailing comma and space
-      shape += `)`;
-    
-      return shape;
+      resize();
+      window.addEventListener('resize', resize);
     }
     
+    var advancedStaggeringAnimation = (function() {
+    
+      var staggerVisualizerEl = document.querySelector('.stagger-visualizer');
+      var dotsWrapperEl = staggerVisualizerEl.querySelector('.dots-wrapper');
+      var dotsFragment = document.createDocumentFragment();
+      var grid = [20, 10];
+      var cell = 55;
+      var numberOfElements = grid[0] * grid[1];
+      var animation;
+      var paused = true;
+      
+      fitElementToParent(staggerVisualizerEl, 0);
+    
+      for (var i = 0; i < numberOfElements; i++) {
+        var dotEl = document.createElement('div');
+        dotEl.classList.add('dot');
+        dotsFragment.appendChild(dotEl);
+      }
+    
+      dotsWrapperEl.appendChild(dotsFragment);
+    
+      var index = anime.random(0, numberOfElements-1);
+      var nextIndex = 0;
+    
+      anime.set('.stagger-visualizer .cursor', {
+        translateX: anime.stagger(-cell, {grid: grid, from: index, axis: 'x'}),
+        translateY: anime.stagger(-cell, {grid: grid, from: index, axis: 'y'}),
+        translateZ: 0,
+        scale: 1.5,
+      });
+    
+      function play() {
+    
+        paused = false;
+        if (animation) animation.pause();
+    
+        nextIndex = anime.random(0, numberOfElements-1);
+    
+        animation = anime.timeline({
+          easing: 'easeInOutQuad',
+          complete: play
+        })
+        .add({
+          targets: '.stagger-visualizer .cursor',
+          keyframes: [
+            { scale: .75, duration: 120}, 
+            { scale: 2.5, duration: 220},
+            { scale: 1.5, duration: 450},
+          ],
+          duration: 300
+        })
+        .add({
+          targets: '.stagger-visualizer .dot',
+          keyframes: [
+            {
+              translateX: anime.stagger('-2px', {grid: grid, from: index, axis: 'x'}),
+              translateY: anime.stagger('-2px', {grid: grid, from: index, axis: 'y'}),
+              duration: 100
+            }, {
+              translateX: anime.stagger('4px', {grid: grid, from: index, axis: 'x'}),
+              translateY: anime.stagger('4px', {grid: grid, from: index, axis: 'y'}),
+              scale: anime.stagger([2.6, 1], {grid: grid, from: index}),
+              duration: 225
+            }, {
+              translateX: 0,
+              translateY: 0,
+              scale: 1,
+              duration: 1200,
+            }
+          ],
+          delay: anime.stagger(80, {grid: grid, from: index})
+        }, 30)
+        .add({
+          targets: '.stagger-visualizer .cursor',
+          translateX: { value: anime.stagger(-cell, {grid: grid, from: nextIndex, axis: 'x'}) },
+          translateY: { value: anime.stagger(-cell, {grid: grid, from: nextIndex, axis: 'y'}) },
+          scale: 1.5,
+          easing: 'cubicBezier(.075, .2, .165, 1)'
+        }, '-=800')
+    
+        index = nextIndex;
+    
+      }
+    
+      play();
+    
+    })();
 
+
+    //carousel code
+    var
+    carousel = document.querySelector('.carousel'),
+    figure = carousel.querySelector('figure'),
+    nav = carousel.querySelector('nav'),
+    numImages = figure.childElementCount,
+    theta =  2 * Math.PI / numImages,
+    currImage = 0
+  ;
+    
+  nav.addEventListener('click', onClick, true);
+  
+  function onClick(e) {
+    e.stopPropagation();
+    
+    var t = e.target;
+    if (t.tagName.toUpperCase() != 'BUTTON')
+      return;
+    
+    if (t.classList.contains('next')) {
+      currImage++;
+    }
+    else {
+      currImage--;
+    }
+    
+    figure.style.transform = `rotateY(${currImage * -theta}rad)`;
+  }
+  
+  
+  Resources
   </script>
 </body>
-<footer>copy right axispex</footer>
 </html>

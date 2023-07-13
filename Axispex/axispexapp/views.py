@@ -8,3 +8,6 @@ def index(request):
 
 def loginpage(request):
     return render(request, 'axispex/loginpage.html')
+
+def test(request):
+    return render(request, 'axispex/test.html')
