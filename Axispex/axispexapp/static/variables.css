@@ -3,56 +3,73 @@ body {
   font-family: "Roboto";
   font-size: 16px;
   display: flex;
-  flex-direction: column;
+  flex-direction: column
 }
 
 .carousel {
   padding: 20px;
-  perspective: 600px;
+  perspective: 400px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.carousel figure {
+.carousel figure a {
   margin: 0;
   width: 600px;
   transform-style: preserve-3d;
   transition: transform 0.5s;
   transform-origin: 50% 50% -482.8427124746px;
 }
-.carousel figure img {
-  width: 100%; /* Set the images to take 100% width of their containers */
-  height: 550px; /* Maintain the aspect ratio */
-  box-sizing: border-box;
-  padding: 0 150px;
-  opacity: 0.9;
-}
-.carousel figure img:not(:first-of-type) {
+
+.carousel figure a:not(:first-of-type) {
   position: absolute;
   left: 0;
   top: 0;
   transform-origin: 50% 50% -482.8427124746px;
 }
-.carousel figure img:nth-child(2) {
+
+.carousel figure a:nth-child(2) {
   transform: rotateY(0.7853981634rad);
 }
-.carousel figure img:nth-child(3) {
+.carousel figure a:nth-child(3) {
   transform: rotateY(1.5707963268rad);
 }
-.carousel figure img:nth-child(4) {
+.carousel figure a:nth-child(4) {
   transform: rotateY(2.3561944902rad);
 }
-.carousel figure img:nth-child(5) {
+.carousel figure a:nth-child(5) {
   transform: rotateY(3.1415926536rad);
 }
-.carousel figure img:nth-child(6) {
+.carousel figure a:nth-child(6) {
   transform: rotateY(3.926990817rad);
 }
-.carousel figure img:nth-child(7) {
+.carousel figure a:nth-child(7) {
   transform: rotateY(4.7123889804rad);
 }
-.carousel figure img:nth-child(8) {
+.carousel figure a:nth-child(8) {
   transform: rotateY(5.4977871438rad);
-}/*# sourceMappingURL=variables.css.map */
+}
+
+.carousel figure a img:nth-child(2) {
+  transform: rotateY(0.7853981634rad);
+}
+.carousel figure a img:nth-child(3) {
+  transform: rotateY(1.5707963268rad);
+}
+.carousel figure a img:nth-child(4) {
+  transform: rotateY(2.3561944902rad);
+}
+.carousel figure a img:nth-child(5) {
+  transform: rotateY(3.1415926536rad);
+}
+.carousel figure a img:nth-child(6) {
+  transform: rotateY(3.926990817rad);
+}
+.carousel figure a img:nth-child(7) {
+  transform: rotateY(4.7123889804rad);
+}
+.carousel figure a img:nth-child(8) {
+  transform: rotateY(5.4977871438rad);
+}/*# sourceMappingURL=variables.css.ma/*# sourceMappingURL=variables.css.map */

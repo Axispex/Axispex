@@ -5,8 +5,34 @@
   <title></title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link href="{% static 'styles.css' %}" rel="stylesheet">
-  <link href="{% static 'variables.css' %}" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.0/anime.min.js"></script>
+<style>
+.snap {
+  font: monospace;
+  border-style: solid;
+  border-color: #f5f5f5;
+  border-radius: 5px;
+  position: fixed;
+  bottom: 70px;
+  left: 43%;
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  z-index: 9999;
+}
+
+
+</style>
 </head>
 <body id="sld">
   
@@ -59,26 +85,124 @@
       <div class="dots-wrapper"></div>
     </div>
   </div>
-      <div class="carousel">
-        <figure>
-          <img src="{% static 'c-1.png' %}" alt="">
-          <img src="{% static 'c-1.png' %}" alt="">
-          <img src="{% static 'c-1.png' %}" alt="">
-          <img src="{% static 'c-1.png' %}" alt="">
-          <img src="{% static 'c-1.png' %}" alt="">
-          <img src="{% static 'c-1.png' %}" alt="">
-          <img src="{% static 'c-1.png' %}" alt="">
-          <img src="{% static 'c-1.png' %}" alt="">
-        </figure>
-        <nav>
-          <button class="nav prev">Prev</button>
-          <button class="nav next">Next</button>
-        </nav>
+  <div class="container">
+    <div class="carousel">
+      <div class="carousel__face" id="ctn1">
+        <a href="#" id="popupTrigger1" onclick="showPopup('popup1'); return false;">
+          <span>This is something</span>
+        </a>
+      </div>
+      <div class="carousel__face" id="ctn2">
+        <a href="#" id="popupTrigger2" onclick="showPopup('popup2'); return false;">
+          <span>Very special</span>
+        </a>
+      </div>
+      <div class="carousel__face" id="ctn3">
+        <a href="#" id="popupTrigger3" onclick="showPopup('popup3'); return false;">
+          <span>Very special</span>
+        </a>
+      </div>
+      <div class="carousel__face" id="ctn4">
+        <a href="#" id="popupTrigger4" onclick="showPopup('popup4'); return false;">
+          <span>Very special</span>
+        </a>
+      </div>
+      <div class="carousel__face" id="ctn5">
+        <a href="#" id="popupTrigger5" onclick="showPopup('popup5'); return false;">
+          <span>Very special</span>
+        </a>
+      </div>
+      <div class="carousel__face" id="ctn6">
+        <a href="#" id="popupTrigger6" onclick="showPopup('popup6'); return false;">
+          <span>Very special</span>
+        </a>
+      </div>
+      <div class="carousel__face" id="ctn7">
+        <a href="#" id="popupTrigger7" onclick="showPopup('popup7'); return false;">
+          <span>Very special</span>
+        </a>
+      </div>
+      <div class="carousel__face" id="ctn8">
+        <a href="#" id="popupTrigger8" onclick="showPopup('popup8'); return false;">
+          <span>Very special</span>
+        </a>
+      </div>
+      <div class="carousel__face" id="ctn9">
+        <a href="#" id="popupTrigger9" onclick="showPopup('popup9'); return false;">
+          <span>Very special</span>
+        </a>
+      </div>
+      <!-- Add similar blocks for other carousel__face elements -->
+    </div>
+  </div>
+  <div class="snap">
+      <div class="snaps" id="img1"><a href="#ctn1">.</a></div>
+      <div class="snaps" id="img2"><a href="#ctn2">.</a></div>
+      <div class="snaps" id="img3"><a href="#ctn3">.</a></div>
+      <div class="snaps" id="img4"><a href="#ctn4">.</a></div>
+      <div class="snaps" id="img5"><a href="#ctn5">.</a></div>
+      <div class="snaps" id="img6"><a href="#ctn6">.</a></div>
+      <div class="snaps" id="img7"><a href="#ctn7">.</a></div>
+      <div id="popup1" class="popup">
+        <h3>Popup 1</h3>
+        <p>Software EngineeringSoftware EngineeringSoftware EngineeringSoftware Engineering
+          Software EngineeringSoftware EngineeringSoftware EngineeringSoftware Engineering
+          Software EngineeringSoftware EngineeringSoftware EngineeringSoftware Engineering
+          Software EngineeringSoftware EngineeringSoftware EngineeringSoftware Engineering
+          Software EngineeringSoftware EngineeringSoftware EngineeringSoftware Engineering
+          Software EngineeringSoftware EngineeringSoftware Engineering
+          Software EngineeringSoftware EngineeringSoftware EngineeringSoftware Engineering
+        </p>
+        <button data-popup="popup1" id="closePopup1" class="btn btn-secondary close-btn">Close</button>
+      </div>
+      
+      <div id="popup2" class="popup">
+        <h3>Popup 2</h3>
+        <p>This is the content of Popup 2.</p>
+        <button id="closePopup2" class="btn btn-secondary">Close</button>
+      </div>
+      <div id="popup3" class="popup">
+        <h3>Popup 3</h3>
+        <p>This is the content of Popup 2.</p>
+        <button id="closePopup3" class="btn btn-secondary">Close</button>
+      </div>
+      <div id="popup4" class="popup">
+        <h3>Popup 4</h3>
+        <p>This is the content of Popup 2.</p>
+        <button id="closePopup4" class="btn btn-secondary">Close</button>
+      </div>
+      <div id="popup5" class="popup">
+        <h3>Popup 5</h3>
+        <p>This is the content of Popup 2.</p>
+        <button id="closePopup5" class="btn btn-secondary">Close</button>
+      </div>
+      <div id="popup6" class="popup">
+        <h3>Popup 6</h3>
+        <p>This is the content of Popup 2.</p>
+        <button id="closePopup6" class="btn btn-secondary">Close</button>
+      </div>
+      <div id="popup7" class="popup">
+        <h3>Popup 7</h3>
+        <p>This is the content of Popup 2.</p>
+        <button id="closePopup7" class="btn btn-secondary">Close</button>
+      </div>
+      <div id="popup8" class="popup">
+        <h3>Popup 8</h3>
+        <p>This is the content of Popup 2.</p>
+        <button id="closePopup8" class="btn btn-secondary">Close</button>
+      </div>
+      <div id="popup9" class="popup">
+        <h3>Popup 9</h3>
+        <p>This is the content of Popup 2.</p>
+        <button id="closePopup9" class="btn btn-secondary">Close</button>
       </div>
 
-  </div>
-<footer>copy right axispex</footer>
+      
+      <!-- Add similar blocks for popup3, popup4, ... -->
+      
+  <footer>&#169; axispex</footer>
   <script>
+
     function fitElementToParent(el, padding) {
       var timeout = null;
       function resize() {
@@ -94,7 +218,7 @@
       resize();
       window.addEventListener('resize', resize);
     }
-    
+
     var advancedStaggeringAnimation = (function() {
     
       var staggerVisualizerEl = document.querySelector('.stagger-visualizer');
@@ -185,36 +309,131 @@
 
 
     //carousel code
-    var
-    carousel = document.querySelector('.carousel'),
-    figure = carousel.querySelector('figure'),
-    nav = carousel.querySelector('nav'),
-    numImages = figure.childElementCount,
-    theta =  2 * Math.PI / numImages,
-    currImage = 0
-  ;
+    var carousel = document.querySelector('.carousel');
+    var carouselFigure = carousel.querySelector('.carousel__face');
+    var img1 = document.getElementById('img1');
+    var img2 = document.getElementById('img2');
+    var img3 = document.getElementById('img3');
+    var img4 = document.getElementById('img4');
+    var img5 = document.getElementById('img5');
+    var img6 = document.getElementById('img6');
+    var img7 = document.getElementById('img7');
+    var img8 = document.getElementById('img8');
+
+      
+      img1.addEventListener('mouseover', function() {
+        carousel.style.animation= 'rotate40 1s  forwards linear';
+      }); 
+      img2.addEventListener('mouseover', function() {
+        carousel.style.animation= 'rotate80 1s  forwards linear';
+      });
+      img3.addEventListener('mouseover', function() {
+        carousel.style.animation= 'rotate120 1s  forwards linear';
+      });
+      img4.addEventListener('mouseover', function() {
+        carousel.style.animation= 'rotate160 1s  forwards linear';
+      });
+      img5.addEventListener('mouseover', function() {
+        carousel.style.animation= 'rotate200 1s  forwards linear';
+      });
+      img6.addEventListener('mouseover', function() {
+        carousel.style.animation= 'rotate240 1s  forwards linear';
+      });
+      img7.addEventListener('mouseover', function() {
+        carousel.style.animation= 'rotate280 1s  forwards linear';
+      });
+      img8.addEventListener('mouseover', function() {
+        carousel.style.animation= 'rotate320 1s  forwards linear';
+      });
+      img9.addEventListener('mouseover', function() {
+        carousel.style.animation= 'rotate360 1s  forwards linear';
+      });
+      img1.addEventListener('mouseout', function() {
+        carousel.style.animation= 'rotate0 1s  forwards linear';
+      }); 
+      img2.addEventListener('mouseout', function() {
+        carousel.style.animation= 'rotate0 1s  forwards linear';
+      });
+      img3.addEventListener('mouseout', function() {
+        carousel.style.animation= 'rotate0 1s  forwards linear';
+      });
+      img4.addEventListener('mouseout', function() {
+        carousel.style.animation= 'rotate0 1s  forwards linear';
+      });
+      img5.addEventListener('mouseout', function() {
+        carousel.style.animation= 'rotate0 1s  forwards linear';
+      });
+      img6.addEventListener('mouseout', function() {
+        carousel.style.animation= 'rotate0 1s  forwards linear';
+      });
+      img7.addEventListener('mouseout', function() {
+        carousel.style.animation= 'rotate0 1s  forwards linear';
+      });
+      img8.addEventListener('mouseout', function() {
+        carousel.style.animation= 'rotate0 1s  forwards linear';
+      });
+      img9.addEventListener('mouseout', function() {
+        carousel.style.animation= 'rotate0 1s  forwards linear';
+      });
+
+
+
     
-  nav.addEventListener('click', onClick, true);
-  
-  function onClick(e) {
-    e.stopPropagation();
-    
-    var t = e.target;
-    if (t.tagName.toUpperCase() != 'BUTTON')
-      return;
-    
-    if (t.classList.contains('next')) {
-      currImage++;
-    }
-    else {
-      currImage--;
-    }
-    
-    figure.style.transform = `rotateY(${currImage * -theta}rad)`;
+
+      //popup
+// Function to show the popup
+function showPopup(popupId) {
+  var popup = document.getElementById(popupId);
+  popup.style.display = 'block';
+}
+
+// Function to close the popup
+function closePopup(popupId) {
+  var popup = document.getElementById(popupId);
+  popup.style.display = 'none';
+}
+
+// Add event listeners for close buttons of each popup
+document.getElementById('popupTrigger1').addEventListener('click', function() {
+  showPopup('popup1');
+  closePopup('popup1');
+});
+document.getElementById('popupTrigger2').addEventListener('click', function() {
+  showPopup('popup2');
+});
+document.getElementById('popupTrigger3').addEventListener('click', function() {
+  showPopup('popup3');
+});
+document.getElementById('popupTrigger4').addEventListener('click', function() {
+  showPopup('popup4');
+});
+document.getElementById('popupTrigger5').addEventListener('click', function() {
+  showPopup('popup5');
+});
+document.getElementById('popupTrigger6').addEventListener('click', function() {
+  showPopup('popup6');
+});
+document.getElementById('popupTrigger7').addEventListener('click', function() {
+  showPopup('popup7');
+});
+document.getElementById('popupTrigger8').addEventListener('click', function() {
+  showPopup('popup8');
+});
+document.getElementById('popupTrigger9').addEventListener('click', function() {
+  showPopup('popup9');
+});
+
+
+function closePopup(popupId) {
+  var closeButtons = document.getElementsByClassName('close-btn');
+  for (var i = 0; i < closeButtons.length; i++) {
+    var button = closeButtons[i];
+    button.addEventListener('click', function() {
+      var popup = document.getElementById(popupId);
+      popup.style.display = 'none';
+    });
   }
-  
-  
-  Resources
-  </script>
+}
+</script>
 </body>
 </html>
