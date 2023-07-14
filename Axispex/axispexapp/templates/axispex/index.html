@@ -153,48 +153,48 @@
           Software EngineeringSoftware EngineeringSoftware Engineering
           Software EngineeringSoftware EngineeringSoftware EngineeringSoftware Engineering
         </p>
-        <button data-popup="popup1" id="closePopup1" class="btn btn-secondary close-btn">Close</button>
+        <button id="closePopup1" class="btn btn-secondary" onclick="closePopup('popup1'); return false;">Close</button>
       </div>
       
       <div id="popup2" class="popup">
         <h3>Popup 2</h3>
         <p>This is the content of Popup 2.</p>
-        <button id="closePopup2" class="btn btn-secondary">Close</button>
+        <button id="closePopup2" class="btn btn-secondary" onclick="closePopup('popup2'); return false;">Close</button>
       </div>
       <div id="popup3" class="popup">
         <h3>Popup 3</h3>
         <p>This is the content of Popup 2.</p>
-        <button id="closePopup3" class="btn btn-secondary">Close</button>
+        <button id="closePopup3" class="btn btn-secondary" onclick="closePopup('popup3'); return false;">Close</button>
       </div>
       <div id="popup4" class="popup">
         <h3>Popup 4</h3>
         <p>This is the content of Popup 2.</p>
-        <button id="closePopup4" class="btn btn-secondary">Close</button>
+        <button id="closePopup4" class="btn btn-secondary" onclick="closePopup('popup4'); return false;">Close</button>
       </div>
       <div id="popup5" class="popup">
         <h3>Popup 5</h3>
         <p>This is the content of Popup 2.</p>
-        <button id="closePopup5" class="btn btn-secondary">Close</button>
+        <button id="closePopup5" class="btn btn-secondary" onclick="closePopup('popup5'); return false;">Close</button>
       </div>
       <div id="popup6" class="popup">
         <h3>Popup 6</h3>
         <p>This is the content of Popup 2.</p>
-        <button id="closePopup6" class="btn btn-secondary">Close</button>
+        <button id="closePopup6" class="btn btn-secondary" onclick="closePopup('popup6'); return false;">Close</button>
       </div>
       <div id="popup7" class="popup">
         <h3>Popup 7</h3>
         <p>This is the content of Popup 2.</p>
-        <button id="closePopup7" class="btn btn-secondary">Close</button>
+        <button id="closePopup7" class="btn btn-secondary" onclick="closePopup('popup7'); return false;">Close</button>
       </div>
       <div id="popup8" class="popup">
         <h3>Popup 8</h3>
         <p>This is the content of Popup 2.</p>
-        <button id="closePopup8" class="btn btn-secondary">Close</button>
+        <button id="closePopup8" class="btn btn-secondary" onclick="closePopup('popup8'); return false;">Close</button>
       </div>
       <div id="popup9" class="popup">
         <h3>Popup 9</h3>
         <p>This is the content of Popup 2.</p>
-        <button id="closePopup9" class="btn btn-secondary">Close</button>
+        <button id="closePopup9" class="btn btn-secondary" onclick="closePopup('popup9'); return false;">Close</button>
       </div>
 
       
@@ -396,7 +396,6 @@ function closePopup(popupId) {
 // Add event listeners for close buttons of each popup
 document.getElementById('popupTrigger1').addEventListener('click', function() {
   showPopup('popup1');
-  closePopup('popup1');
 });
 document.getElementById('popupTrigger2').addEventListener('click', function() {
   showPopup('popup2');
@@ -422,18 +421,13 @@ document.getElementById('popupTrigger8').addEventListener('click', function() {
 document.getElementById('popupTrigger9').addEventListener('click', function() {
   showPopup('popup9');
 });
+let pop = document.getElementById('popup1');
+const closebtn = document.querySelector("#closePopup1");
 
-
-function closePopup(popupId) {
-  var closeButtons = document.getElementsByClassName('close-btn');
-  for (var i = 0; i < closeButtons.length; i++) {
-    var button = closeButtons[i];
-    button.addEventListener('click', function() {
-      var popup = document.getElementById(popupId);
-      popup.style.display = 'none';
-    });
-  }
-}
+closebtn.addEventListener('click', function() {
+  alert("jjj")
+  pop.style.display = 'none';
+});
 </script>
 </body>
 </html>
