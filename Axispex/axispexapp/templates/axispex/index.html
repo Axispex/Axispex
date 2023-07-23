@@ -7,15 +7,20 @@
   <link href="{% static 'styles.css' %}" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.0/anime.min.js"></script>
-<style>
+<style> 
 .snap {
   font: monospace;
-  border-style: solid;
-  border-color: #f5f5f5;
-  border-radius: 5px;
   position: fixed;
   bottom: 70px;
-  left: 43%;
+  left: 35%;
+  
+} 
+.snaps {
+  width: 50px;
+  height: 20px;
+  display: inline-block;
+  border-radius: 10%;
+  background-color: white;
 }
 
 .popup {
@@ -78,71 +83,74 @@
       </li>
     </ul> 
   </nav>
-  
+  <h3 class="heading1" id="h1"></h3>
   <div class="animation-wrapper" id="animation-wrapper">
     <div class="stagger-visualizer">
       <div class="cursor color-red"></div>
       <div class="dots-wrapper"></div>
     </div>
   </div>
+  
   <div class="container">
     <div class="carousel">
-      <div class="carousel__face" id="ctn1">
-        <a href="#" id="popupTrigger1" onclick="showPopup('popup1'); return false;">
+      <div class="carousel__face" id="ctn1" data-rotation="40">
+        <a href="#" id="popupTrigger1" onmouseover="hideanddisplay('ctn1',1)" onclick="showPopup('popup1'); hideOtherCards('ctn1'); return false;" >
           <span>This is something</span>
         </a>
       </div>
-      <div class="carousel__face" id="ctn2">
-        <a href="#" id="popupTrigger2" onclick="showPopup('popup2'); return false;">
+      <div class="carousel__face" id="ctn2" data-rotation="80">
+        <a href="#" id="popupTrigger2" onmouseover="hideanddisplay('ctn2',2)" onclick="showPopup('popup2');hideOtherCards('ctn2'); return false; return false;">
           <span>Very special</span>
         </a>
       </div>
-      <div class="carousel__face" id="ctn3">
-        <a href="#" id="popupTrigger3" onclick="showPopup('popup3'); return false;">
+      <div class="carousel__face" id="ctn3" data-rotation="120">
+        <a href="#" id="popupTrigger3" onmouseover="hideanddisplay('ctn3',3)" onclick="showPopup('popup3');hideOtherCards('ctn3'); return false; return false;">
           <span>Very special</span>
         </a>
       </div>
-      <div class="carousel__face" id="ctn4">
-        <a href="#" id="popupTrigger4" onclick="showPopup('popup4'); return false;">
+      <div class="carousel__face" id="ctn4" data-rotation="160">
+        <a href="#" id="popupTrigger4" onmouseover="hideanddisplay('ctn4',4)" onclick="showPopup('popup4');hideOtherCards('ctn4'); return false; return false;">
           <span>Very special</span>
         </a>
       </div>
-      <div class="carousel__face" id="ctn5">
-        <a href="#" id="popupTrigger5" onclick="showPopup('popup5'); return false;">
+      <div class="carousel__face" id="ctn5" data-rotation="200">
+        <a href="#" id="popupTrigger5" onmouseover="hideanddisplay('ctn5',5)" onclick="showPopup('popup5');hideOtherCards('ctn5'); return false; return false;">
           <span>Very special</span>
         </a>
       </div>
-      <div class="carousel__face" id="ctn6">
-        <a href="#" id="popupTrigger6" onclick="showPopup('popup6'); return false;">
+      <div class="carousel__face" id="ctn6" data-rotation="240">
+        <a href="#" id="popupTrigger6" onmouseover="hideanddisplay('ctn6',6)" onclick="showPopup('popup6');hideOtherCards('ctn6'); return false; return false;">
           <span>Very special</span>
         </a>
       </div>
-      <div class="carousel__face" id="ctn7">
-        <a href="#" id="popupTrigger7" onclick="showPopup('popup7'); return false;">
+      <div class="carousel__face" id="ctn7" data-rotation="280">
+        <a href="#" id="popupTrigger7" onmouseover="hideanddisplay('ctn7',7)" onclick="showPopup('popup7');hideOtherCards('ctn7'); return false; return false;">
           <span>Very special</span>
         </a>
       </div>
-      <div class="carousel__face" id="ctn8">
-        <a href="#" id="popupTrigger8" onclick="showPopup('popup8'); return false;">
+      <div class="carousel__face" id="ctn8" data-rotation="320">
+        <a href="#" id="popupTrigger8" onmouseover="hideanddisplay('ctn8',8)" onclick="showPopup('popup8');hideOtherCards('ctn8'); return false; return false;">
           <span>Very special</span>
         </a>
       </div>
-      <div class="carousel__face" id="ctn9">
-        <a href="#" id="popupTrigger9" onclick="showPopup('popup9'); return false;">
+      <div class="carousel__face" id="ctn9" data-rotation="360">
+        <a href="#" id="popupTrigger9" onmouseover="hideanddisplay('ctn9',9)" onclick="showPopup('popup9');hideOtherCards('ctn9'); return false; return false;">
           <span>Very special</span>
         </a>
-      </div>
+      </div>  
       <!-- Add similar blocks for other carousel__face elements -->
     </div>
   </div>
-  <div class="snap">
-      <div class="snaps" id="img1"><a href="#ctn1">.</a></div>
-      <div class="snaps" id="img2"><a href="#ctn2">.</a></div>
-      <div class="snaps" id="img3"><a href="#ctn3">.</a></div>
-      <div class="snaps" id="img4"><a href="#ctn4">.</a></div>
-      <div class="snaps" id="img5"><a href="#ctn5">.</a></div>
-      <div class="snaps" id="img6"><a href="#ctn6">.</a></div>
-      <div class="snaps" id="img7"><a href="#ctn7">.</a></div>
+  <div class="snap" id="navaxis">
+      <div class="snaps" id="img1" onclick="hideanddisplay('ctn1',1); return false;"><a href="#ctn1">.</a></div>  
+      <div class="snaps" id="img2" onclick="hideanddisplay('ctn2',2); return false;"><a href="#ctn1">.</a></div>
+      <div class="snaps" id="img3" onclick="hideanddisplay('ctn3',3); return false;"><a href="#ctn2">.</a></div>
+      <div class="snaps" id="img4" onclick="hideanddisplay('ctn4',4); return false;"><a href="#ctn3">.</a></div>
+      <div class="snaps" id="img5" onclick="hideanddisplay('ctn5',5); return false;"><a href="#ctn4">.</a></div>
+      <div class="snaps" id="img6" onclick="hideanddisplay('ctn6',6); return false;"><a href="#ctn5">.</a></div>
+      <div class="snaps" id="img7" onclick="hideanddisplay('ctn7',7); return false;"><a href="#ctn6">.</a></div>
+      <div class="snaps" id="img8" onclick="hideanddisplay('ctn8',8); return false;"><a href="#ctn7">.</a></div>
+      <div class="snaps" id="img9" onclick="hideanddisplay('ctn9',9); return false;"><a href="#ctn8">.</a></div>
       <div id="popup1" class="popup">
         <h3>Popup 1</h3>
         <p>Software EngineeringSoftware EngineeringSoftware EngineeringSoftware Engineering
@@ -153,51 +161,53 @@
           Software EngineeringSoftware EngineeringSoftware Engineering
           Software EngineeringSoftware EngineeringSoftware EngineeringSoftware Engineering
         </p>
-        <button id="closePopup1" class="btn btn-secondary" onclick="closePopup('popup1'); return false;">Close</button>
+        <button id="closePopup1" class="btn btn-secondary" onclick="closePopup('popup1'); showAllCards(); return false;">Close</button>
       </div>
       
       <div id="popup2" class="popup">
         <h3>Popup 2</h3>
         <p>This is the content of Popup 2.</p>
-        <button id="closePopup2" class="btn btn-secondary" onclick="closePopup('popup2'); return false;">Close</button>
+        <button id="closePopup2" class="btn btn-secondary" onclick="closePopup('popup2'); showAllCards(); return false;">Close</button>
       </div>
       <div id="popup3" class="popup">
         <h3>Popup 3</h3>
         <p>This is the content of Popup 2.</p>
-        <button id="closePopup3" class="btn btn-secondary" onclick="closePopup('popup3'); return false;">Close</button>
+        <button id="closePopup3" class="btn btn-secondary" onclick="closePopup('popup3'); showAllCards(); return false;">Close</button>
       </div>
       <div id="popup4" class="popup">
         <h3>Popup 4</h3>
         <p>This is the content of Popup 2.</p>
-        <button id="closePopup4" class="btn btn-secondary" onclick="closePopup('popup4'); return false;">Close</button>
+        <button id="closePopup4" class="btn btn-secondary" onclick="closePopup('popup4'); showAllCards(); return false;">Close</button>
       </div>
       <div id="popup5" class="popup">
         <h3>Popup 5</h3>
         <p>This is the content of Popup 2.</p>
-        <button id="closePopup5" class="btn btn-secondary" onclick="closePopup('popup5'); return false;">Close</button>
+        <button id="closePopup5" class="btn btn-secondary" onclick="closePopup('popup5'); showAllCards(); return false;">Close</button>
       </div>
       <div id="popup6" class="popup">
         <h3>Popup 6</h3>
         <p>This is the content of Popup 2.</p>
-        <button id="closePopup6" class="btn btn-secondary" onclick="closePopup('popup6'); return false;">Close</button>
+        <button id="closePopup6" class="btn btn-secondary" onclick="closePopup('popup6'); showAllCards(); return false;">Close</button>
       </div>
       <div id="popup7" class="popup">
         <h3>Popup 7</h3>
         <p>This is the content of Popup 2.</p>
-        <button id="closePopup7" class="btn btn-secondary" onclick="closePopup('popup7'); return false;">Close</button>
+        <button id="closePopup7" class="btn btn-secondary" onclick="closePopup('popup7'); showAllCards(); return false;">Close</button>
       </div>
       <div id="popup8" class="popup">
         <h3>Popup 8</h3>
         <p>This is the content of Popup 2.</p>
-        <button id="closePopup8" class="btn btn-secondary" onclick="closePopup('popup8'); return false;">Close</button>
+        <button id="closePopup8" class="btn btn-secondary" onclick="closePopup('popup8'); showAllCards(); return false;">Close</button>
       </div>
       <div id="popup9" class="popup">
         <h3>Popup 9</h3>
         <p>This is the content of Popup 2.</p>
-        <button id="closePopup9" class="btn btn-secondary" onclick="closePopup('popup9'); return false;">Close</button>
+        <button id="closePopup9" class="btn btn-secondary" onclick="closePopup('popup9'); showAllCards(); return false;">Close</button>
       </div>
-
-      
+    <div class="shortcut">
+      <h3 class="heading2" id="h2">Heading 2</h3>
+      <h3 class="heading3" id="h3">Heading 3</h3>
+    </div>
       <!-- Add similar blocks for popup3, popup4, ... -->
       
   <footer>&#169; axispex</footer>
@@ -319,64 +329,39 @@
     var img6 = document.getElementById('img6');
     var img7 = document.getElementById('img7');
     var img8 = document.getElementById('img8');
+    var img9 = document.getElementById('img9');
 
       
       img1.addEventListener('mouseover', function() {
-        carousel.style.animation= 'rotate40 1s  forwards linear';
+        carousel.style.animation= 'rotate0 1s  forwards linear';
       }); 
       img2.addEventListener('mouseover', function() {
-        carousel.style.animation= 'rotate80 1s  forwards linear';
+        carousel.style.animation= 'rotate40 1s  forwards linear';
       });
       img3.addEventListener('mouseover', function() {
-        carousel.style.animation= 'rotate120 1s  forwards linear';
+        carousel.style.animation= 'rotate80 1s  forwards linear';
       });
       img4.addEventListener('mouseover', function() {
-        carousel.style.animation= 'rotate160 1s  forwards linear';
+        carousel.style.animation= 'rotate120 1s  forwards linear';
       });
       img5.addEventListener('mouseover', function() {
-        carousel.style.animation= 'rotate200 1s  forwards linear';
+        carousel.style.animation= 'rotate160 1s  forwards linear';
       });
       img6.addEventListener('mouseover', function() {
-        carousel.style.animation= 'rotate240 1s  forwards linear';
+        carousel.style.animation= 'rotate200 1s  forwards linear';
       });
       img7.addEventListener('mouseover', function() {
-        carousel.style.animation= 'rotate280 1s  forwards linear';
+        carousel.style.animation= 'rotate240 1s  forwards linear';
       });
       img8.addEventListener('mouseover', function() {
+        carousel.style.animation= 'rotate280 1s  forwards linear';
+      });
+      img9.addEventListener('mouseover', function() {
         carousel.style.animation= 'rotate320 1s  forwards linear';
       });
       img9.addEventListener('mouseover', function() {
         carousel.style.animation= 'rotate360 1s  forwards linear';
       });
-      img1.addEventListener('mouseout', function() {
-        carousel.style.animation= 'rotate0 1s  forwards linear';
-      }); 
-      img2.addEventListener('mouseout', function() {
-        carousel.style.animation= 'rotate0 1s  forwards linear';
-      });
-      img3.addEventListener('mouseout', function() {
-        carousel.style.animation= 'rotate0 1s  forwards linear';
-      });
-      img4.addEventListener('mouseout', function() {
-        carousel.style.animation= 'rotate0 1s  forwards linear';
-      });
-      img5.addEventListener('mouseout', function() {
-        carousel.style.animation= 'rotate0 1s  forwards linear';
-      });
-      img6.addEventListener('mouseout', function() {
-        carousel.style.animation= 'rotate0 1s  forwards linear';
-      });
-      img7.addEventListener('mouseout', function() {
-        carousel.style.animation= 'rotate0 1s  forwards linear';
-      });
-      img8.addEventListener('mouseout', function() {
-        carousel.style.animation= 'rotate0 1s  forwards linear';
-      });
-      img9.addEventListener('mouseout', function() {
-        carousel.style.animation= 'rotate0 1s  forwards linear';
-      });
-
-
 
     
 
@@ -393,41 +378,152 @@ function closePopup(popupId) {
   popup.style.display = 'none';
 }
 
-// Add event listeners for close buttons of each popup
-document.getElementById('popupTrigger1').addEventListener('click', function() {
-  showPopup('popup1');
-});
-document.getElementById('popupTrigger2').addEventListener('click', function() {
-  showPopup('popup2');
-});
-document.getElementById('popupTrigger3').addEventListener('click', function() {
-  showPopup('popup3');
-});
-document.getElementById('popupTrigger4').addEventListener('click', function() {
-  showPopup('popup4');
-});
-document.getElementById('popupTrigger5').addEventListener('click', function() {
-  showPopup('popup5');
-});
-document.getElementById('popupTrigger6').addEventListener('click', function() {
-  showPopup('popup6');
-});
-document.getElementById('popupTrigger7').addEventListener('click', function() {
-  showPopup('popup7');
-});
-document.getElementById('popupTrigger8').addEventListener('click', function() {
-  showPopup('popup8');
-});
-document.getElementById('popupTrigger9').addEventListener('click', function() {
-  showPopup('popup9');
-});
-let pop = document.getElementById('popup1');
-const closebtn = document.querySelector("#closePopup1");
+//hide all cards
+function hideOtherCards(elementId) {
+  var carouselFaces = document.querySelectorAll('.carousel__face');
+  carouselFaces.forEach(function (face) {
+    if (face.id !== elementId) {
+      face.style.opacity = '0';
+    }
+  });
+}
 
-closebtn.addEventListener('click', function() {
-  alert("jjj")
-  pop.style.display = 'none';
+// Function to show all carousel__face elements
+function showAllCards() {
+  var carouselFaces = document.querySelectorAll('.carousel__face');
+  carouselFaces.forEach(function (face) {
+    face.style.opacity = '1';
+  });
+}
+
+// Function to handle the mouseover event on carousel__face elements
+function handleCarouselMouseOver(event) {
+  var target = event.currentTarget;
+  var rotationValue = target.getAttribute('data-rotation');
+  var elementId = target.id;
+  rotateCarousel(rotationValue);
+  hideOtherCards(elementId);
+}
+
+// Function to handle the mouseout event on carousel__face elements
+function handleCarouselMouseOut() {
+  resetCarousel();
+  showAllCards();
+}
+
+//carousel code
+var carousel = document.querySelector('.carousel');
+var carouselFaces = document.querySelectorAll('.carousel__face');
+
+carouselFaces.forEach(function (face) {
+  face.addEventListener('mouseover', handleCarouselMouseOver);
+  face.addEventListener('mouseout', handleCarouselMouseOut);
 });
+
+function rotateCarousel(rotationValue) {
+  carousel.style.transform = 'rotate(' + rotationValue + 'deg)';
+}
+
+function resetCarousel() {
+  carousel.style.transform = 'rotate(0)';
+}
+
+// Function to show the popup
+function showPopup(popupId) {
+  var popup = document.getElementById(popupId);
+  popup.style.display = 'block';
+}
+
+// Function to close the popup
+function closePopup(popupId) {
+  var popup = document.getElementById(popupId);
+  popup.style.display = 'none';
+}
+
+
+
+
+function hideanddisplay(face,popid) {
+  
+  hideOtherCards(face);
+
+  var h1 = document.getElementById("h1");
+  var h2 = document.getElementById("h2");
+  var h3 = document.getElementById("h3");
+
+  if (popid === 1){
+    h1.innerHTML = 'heading ctn1'
+    h2.innerHTML = 'heading ctn 1'
+    h3.innerHTML = 'heading ctn 1'
+  }
+  if (popid === 2){
+    h1.innerHTML = 'heading ctn2'
+    h2.innerHTML = 'heading ctn 2'
+    h3.innerHTML = 'heading ctn 2'
+  }
+  if (popid === 3){
+    h1.innerHTML = 'heading ctn3'
+    h2.innerHTML = 'heading ctn 3'
+    h3.innerHTML = 'heading ctn 3'
+  }
+  if (popid === 4){
+    h1.innerHTML = 'heading ctn4'
+    h2.innerHTML = 'heading ctn 4'
+    h3.innerHTML = 'heading ctn 4'
+  }
+  if (popid === 5){
+    h1.innerHTML = 'heading ctn5'
+    h2.innerHTML = 'heading ctn 5'
+    h3.innerHTML = 'heading ctn 5'
+  }
+  if (popid === 6){
+    h1.innerHTML = 'heading ctn6'
+    h2.innerHTML = 'heading ctn 6'
+    h3.innerHTML = 'heading ctn 6'
+  }
+  if (popid === 7){
+    h1.innerHTML = 'heading ctn7'
+    h2.innerHTML = 'heading ctn 7'
+    h3.innerHTML = 'heading ctn 7'
+  }
+  if (popid === 8){
+    h1.innerHTML = 'heading ctn8'
+    h2.innerHTML = 'heading ctn 8'
+    h3.innerHTML = 'heading ctn 8'
+  }
+  if (popid === 9){
+    h1.innerHTML = 'heading ctn9'
+    h2.innerHTML = 'heading ctn 9'
+    h3.innerHTML = 'heading ctn 9'
+  }
+
+
+  h1.style.display = "block";
+  h2.style.display = "block";
+  h3.style.display = "block";
+  //var navax = document.getElementById("navaxis");
+  //navax.style.display = "none";
+
+  // Revert the changes after 3 seconds
+  setTimeout(function () {
+    h1.style.display = "none";
+    h2.style.display = "none";
+    h3.style.display = "none";
+    showAllCards();
+    //navax.style.display = "block"; // If you want to revert navaxis too
+  }, 3000); // 3000 milliseconds = 3 seconds
+}
+
+
+
+const navaxi = document.querySelector("#img1");
+    navaxi.addEventListener('click', function () {
+      var h1 = document.getElementById("h1");
+      var h2 = document.getElementById("h2");
+      var h3 = document.getElementById("h3");
+
+      h1.innerText = "hello world"; // Fix: Use innerText instead of innerHTML
+    });
 </script>
 </body>
 </html>

@@ -14,8 +14,8 @@
 
 .ticker-news > * {
   display: inline-block;
-  animation: news 20s infinite linear;
-  animation-delay: 5s;
+  animation: news 12s infinite linear;
+  animation-delay: 0;
 }
 
 @keyframes news {
@@ -177,8 +177,6 @@ a:hover{
   }
 }
 
-
-
 #inline{
   display: block;
   display: inline;
@@ -186,18 +184,10 @@ a:hover{
   font: monospace;
 }
 
-.snaps{
-  display: block;
-  display: inline;
-  font-size: 70px;
-  font: monospace;
-  border-style: solid;
-  border-color: #f5f5f5;
-  border-radius: 5px;
-  width: 10px;
-  height: 5px;
-}
 
+.snaps:hover{
+  background-color: red;
+}
 
 footer {
   position: fixed;
@@ -211,15 +201,7 @@ footer {
   color:white;
 }
 
-.snaps {
-  font: monospace;
-  border-style: solid;
-  border-color: #f5f5f5;
-  border-radius: 5px;
-  margin-top: 700px;
-  
-  
-}
+
 
 #textcolor{
   color: white;
@@ -270,6 +252,7 @@ footer {
   margin: 16px;
   background-color: currentColor;
   border-radius: 50%;
+  
 }
 
 @media (min-width: 740px) {
@@ -350,12 +333,12 @@ span {
   transform: rotateY(320deg) translateZ(430px); }
 
 
-  @keyframes rotate40 {
+  @keyframes rotate0 {
     from {
-      transform: rotateY(-0deg);
+      transform: rotateY(-360deg);
     }
     to {
-      transform: rotateY(-40deg);
+      transform: rotateY(0deg);
     }
   }
 
@@ -377,10 +360,10 @@ span {
   }
   @keyframes rotate120 {
     from {
-      transform: rotateY(360deg);
+      transform: rotateY(0deg);
     }
     to {
-      transform: rotateY(0deg);
+      transform: rotateY(-120deg);
     }
   }
   @keyframes rotate160 {
@@ -439,3 +422,29 @@ span {
       transform: rotateY(0deg);
     }
   }
+
+  .heading1 {
+    color: #fff;
+    text-align: center;
+    display: none;
+    margin-top: 30px;
+    position: relative;
+  }
+  
+  .heading2 {
+    color: #fff;
+    text-align: center;
+    display: none;
+    padding: 10px;
+    position: relative;
+  }
+
+  .heading3 {
+    color: #fff;
+    text-align: center;
+    display: none;
+    padding: 10px;
+    position: relative;
+  }
+
+
